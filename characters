@@ -1,0 +1,31 @@
+/* Create table about the people and what they do here */
+CREATE TABLE characters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    occupation TEXT);
+    
+INSERT INTO characters (fullname, age, occupation) VALUES ("Finn Mertens", 12, "Hero");
+INSERT INTO characters (fullname, age, occupation) VALUES ("Jake", 16, "Hero/Adventurer");
+INSERT INTO characters (fullname, age, occupation) VALUES ("Marceline", 1000, "Musician");
+INSERT INTO characters (fullname, age, occupation) VALUES ("Bonnie Bubblegum", 19, "Scientist");
+INSERT INTO characters (fullname, age, occupation) VALUES ("Ice King", 1043, "Monarch of Ice Kingdom");
+
+CREATE table relatives (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_id INTEGER,
+    species TEXT,
+    source_relatives TEXT);
+    
+INSERT INTO relatives (character_id, species, source_relatives) VALUES (1, "Human", "Jake");
+INSERT INTO relatives (character_id, species, source_relatives) VALUES (2, "Dog/Shape-Shifter", "Finn");
+INSERT INTO relatives (character_id, species, source_relatives) VALUES (3, "Vampire", "Ice-King");
+INSERT INTO relatives (character_id, species, source_relatives) VALUES (4, "Candy Elemental", "Gumbald");
+INSERT INTO relatives (character_id, species, source_relatives) VALUES (5, "Ice Wizard", "Marceline");
+
+SELECT characters.fullname, relatives.source_relatives
+FROM characters
+JOIN relatives
+ON characters.id = relatives.character_id;
+
+    
